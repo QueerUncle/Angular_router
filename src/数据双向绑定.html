@@ -1,0 +1,41 @@
+<!--    
+    project: 
+    site:cbim,
+    author：lize,
+    time:2017/7/25
+ -->
+
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+    <meta charset="UTF-8">
+    <title>数据双向绑定</title>
+    <script src = "framework/angular-1.5.9/angular-1.5.9/angular.js"></script>
+</head>
+<body ng-controller="Ctrl">
+    <div>
+        账号：<input type="text" ng-model = 'user.name'/>
+        密码：<input type="password" ng-model="user.password"/>
+        作者：<input type="text" ng-model="user.ayson" />
+        <button ng-click = "getCon()">保存</button>
+    </div>
+</body>
+</html>
+<script>
+    var app = angular.module('app',[]);
+            app.controller('Ctrl',function($scope){
+                $scope.users =function(){
+                    $scope.user = {};
+                };
+                    $scope.getCon = function(){
+                        var str = {
+                            name:$scope.user.name,
+                            password:$scope.user.password,
+                            ayson:$scope.user.ayson
+                        }
+                        alert(str);
+                        window.location.href = "www.baidu.com";
+                        $scope.user();
+                    }
+            })
+</script>
